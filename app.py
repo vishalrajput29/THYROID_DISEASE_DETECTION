@@ -9,7 +9,7 @@ scalar=pickle.load(open('scaling.pkl','rb'))
 
 @app.route('/')
 def home():
-    return render_template('home.html')
+    return render_template('index.html')
 
 @app.route('/predict_api',methods=['POST'])
 def predict_api():
@@ -39,10 +39,10 @@ def predict():
             print("secondary_hypothyroid")
             
     output=pred_model.predict(final_input)[0]
-    return render_template("home.html",prediction_text="The type of thyroid is {}".format(output))
+    return render_template("index.html",prediction_text="The type of thyroid is {}".format(output))
 
 
 
 
 if __name__=="__main__":
-    app.run(host="0.0.0.0",port=8080)
+    app.run()

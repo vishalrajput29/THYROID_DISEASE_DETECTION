@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thyroid Disease Detection Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #54324a;
+            margin: 0;
+            padding: 20px;
+        }
+        .predict{
+            font-family: Arial, sans-serif;
+            background-color: #add8e6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #B6B6B6;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: black;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .submit-btn:hover {
+            background-color: #218838;
+        }
+    </style>
+
+    <style>
+        p {
+            color:white;
+            
+        }
+        
+    </style>
+
+</head>
+<body>
+
+<div class="container">
+    <h2>Thyroid Disease Detection Form</h2>
+    <form action="{{ url_for('predict')}}"method="post">
+    <form id="thyroid-form">
+        <div class="form-group">
+            <input type="text" name="age" placeholder="age" required="required" /><br>
+        </div>
+        <div class="form-group">
+            <input type="text" name="sex" placeholder="sex" required="required" /><br>
+        </div>
+        <div class="form-group">
+            <input type="text" name="on_thyroxine" placeholder="on_thyroxine" required="required" /><br>
+        </div>
+        <div class="form-group">
+            <input type="text" name="query_on_thyroxine" placeholder="query_on_thyroxine" required="required" /><br>
+        </div>
+        <div class="form-group">
+            <input type="text" name="on_antithyroid_medication" placeholder="on_antithyroid_medication" required="required" /><br>
+        </div>
+        <div class="form-group">
+            <input type="text" name="sick" placeholder="sick" required="required" /><br>
+        </div>
+        <div class="form-group">
+            <input type="text" name="pregnant" placeholder="pregnant" required="required" /><br>
+        </div>
+        <div class="form-group">
+            <input type="text" name="thyroid_surgery" placeholder="thyroid_surgery" required="required" /><br>
+        </div>
+        <div class="form-group">
+            <input type="text" name="I131_treatment" placeholder="I131_treatment" required="required" /><br>
+        </div>
+        <div class="form-group">
+            <input type="text" name="query_hypothyroid" placeholder="query_hypothyroid" required="required" /><br>
+        </div>
+        <div class="form-group">
+            <input type="text" name="query_hyperthyroid" placeholder="query_hyperthyroid" required="required" /><br>
+        </div>
+        <div class="form-group">
+            <input type="text" name="lithium" placeholder="lithium" required="required" /><br>
+        </div>
+        <div class="form-group">
+            <input type="text" name="goitre" placeholder="goitre" required="required" /><br>
+        </div>
+        <div class="form-group">
+            <input type="text" name="tumor" placeholder="tumor" required="required" /><br>
+        </div>
+        <div class="form-group">
+            <input type="text" name="hypopituitary" placeholder="hypopituitary" required="required" /><br>
+        </div>
+        <div class="form-group">
+            <input type="text" name="psych" placeholder="psych" required="required" /><br>
+        </div>
+        <div class="form-group">
+            <input type="text" name="TSH_measured" placeholder="TSH_measured" required="required" /><br>
+        </div>
+        <div class="form-group">
+            <input type="text" name="TSH" placeholder="TSH" required="required" /><br>
+        </div>
+        <div class="form-group">
+            <input type="text" name="LT3_measured" placeholder="T3_measured" required="required" /><br>
+        </div>
+        <div class="form-group">
+            <input type="text" name="T3" placeholder="T3" required="required" /><br>
+        </div>
+        <div class="form-group">
+            <input type="text" name="TT4_measured" placeholder="TT4_measured" required="required" /><br>
+        </div>
+        <div class="form-group">
+            <input type="text" name="TT4" placeholder="TT4" required="required" /><br>
+        </div>
+        <div class="form-group">
+            <input type="text" name="T4U_measured" placeholder="T4U_measured" required="required" /><br>
+        </div>
+        <div class="form-group">
+            <input type="text" name="T4U" placeholder="T4U" required="required" /><br>
+        </div>
+        <div class="form-group">
+            <input type="text" name="FTI_measured" placeholder="FTI_measured" required="required" /><br>
+        </div>
+        <div class="form-group">
+            <input type="text" name="FTI" placeholder="FTI required="required" /><br>
+        </div>
+        <div class="form-group">
+            <input type="text" name="referral_source" placeholder="referral_source" required="required" /><br>
+        </div>
+        <button type="submit" class="submit-btn">Submit</button>
+    </form>
+    <button type="prediction_text" class="predict">{{prediction_text}}</button>
+  
+
+
+</div>
+<p>TYRIOD TYPE</p>
+<p>1='negative'
+   2='compensated_hypothyroid'
+   3= 'primary_hypothyroid'
+   4= 'secondary_hypothyroid'
+</p>
+</body>
+</html>
+
