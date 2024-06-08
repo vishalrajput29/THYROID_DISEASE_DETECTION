@@ -5,4 +5,4 @@ seaborn
 scikit-learn
 matplotlib
 streamlit
-stremlit-option-menu
+streamlit-option-menu
