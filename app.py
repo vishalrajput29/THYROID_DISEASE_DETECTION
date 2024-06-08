@@ -7,7 +7,7 @@ app=Flask(__name__)
 pred_model=pickle.load(open('model.pkl','rb'))
 scalar=pickle.load(open('scaling.pkl','rb'))
 
-@app.route('/https://vishalrajput29.github.io/THYROID_DISEASE_DETECTION/')
+@app.route('/THYROID_DISEASE_DETECTION/')
 def home():
     return render_template('index.html')
 
