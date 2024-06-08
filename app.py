@@ -7,20 +7,9 @@ app=Flask(__name__)
 pred_model=pickle.load(open('model.pkl','rb'))
 scalar=pickle.load(open('scaling.pkl','rb'))
 
-@app.route('/THYROID_DISEASE_DETECTION')
+@app.route('/')
 def home():
     return render_template('index.html')
-
-@app.route('/predict_api',methods=['POST'])
-def predict_api():
-    data=request.json['data']
-    print(data)
-    print(np.array(list(data.values())).reshape(1,-1))
-    new_data=scalar.transform(np.array(list(data.values())).reshape(1,-1))
-    output=pred_model.predict(new_data)
-    print(output[0])
-    return jsonify(output[0])
-
 
 @app.route('/predict',methods=['POST'])
 def predict():

@@ -4,4 +4,5 @@ numpy
 seaborn
 scikit-learn
 matplotlib
-gunicorn
+streamlit
+stremlit-option-menu
